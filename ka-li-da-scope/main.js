@@ -1,8 +1,9 @@
-var diameter = 20
+var diameter = 5;
+var diameterStep = 1.5;
 var centerX;
 var centerY;
 var numSlices = 8;
-var numPositions = 20;
+var numPositions = 25;
 
 var positions = [];
 
@@ -14,7 +15,7 @@ function setup() {
   centerY = height/2;
 
   fill(255);
-  stroke(255);
+  stroke(0, 0, 0, 0);
 }
 
 function draw() {
@@ -38,6 +39,8 @@ function drawPoints(xs) {
     var positions = xs[i];
     var x = positions.x;
     var y = positions.y;
-    ellipse(x - centerX, y - centerY, diameter, diameter);
+    var dia = diameter + diameterStep * (numPositions - i);
+    fill(255, 255, 255, 255 * (1 - i / numPositions));
+    ellipse(x - centerX, y - centerY, dia, dia);
   }
 }
