@@ -3,6 +3,7 @@ var diameterStep = 1.5;
 var centerX;
 var centerY;
 var numSlices = 8;
+var maxNumSlices = 12;
 var numPositions = 25;
 
 var positions = [];
@@ -13,6 +14,8 @@ function setup() {
 
   centerX = width/2;
   centerY = height/2;
+
+  shuffleNumSlices();
 
   fill(255);
   stroke(0, 0, 0, 0);
@@ -43,4 +46,8 @@ function drawPoints(xs) {
     fill(255, 255, 255, 255 * (1 - i / numPositions));
     ellipse(x - centerX, y - centerY, dia, dia);
   }
+}
+
+function shuffleNumSlices() {
+  numSlices =  Math.ceil(Math.random() * (maxNumSlices - 1)) + 1;
 }
